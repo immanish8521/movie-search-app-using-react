@@ -1,25 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import movieData from './Components/movieData';
+import DisplayMovie from './Components/DisplayMovie';
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <div>
+      <h1 className="heading_style">List of top 6 netflix series in 2020</h1>
+      {movieData.map((val) => {
+        return(
+          <DisplayMovie
+            key = {val.id}
+            movieName={val.movieName}
+            movieImage={val.movieImage}
+            movieTitle={val.movieTitle}
+            movieLinks={val.movieLinks}
+          />
+        )
+      })}
+   </div>
+  )
 }
 
 export default App;
